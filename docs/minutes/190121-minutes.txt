@@ -1,0 +1,97 @@
+2019 January 21
+
+Testing notes from Paul have been made and are here
+	Paul will type them up and send them
+	Reports didn't work
+	Everything else worked
+
+Names needed to be changed:
+	Heats -> Relays
+	Players -> Athletes or Shooters or Competitors
+	Counties -> County/Club or Club
+	Gender -> Ongoing debate
+		VT -> Uses Gender and Male/Female
+		Should be a drop-down
+		Not a fill-in-the-blank
+		Used for housing
+		
+Coaches are associated with the athletes
+	Athletes are not associated with the county currently
+
+	Athletes should just be associated with the County
+	And Coaches should associated with the County
+		No direct association with the Coach and Athlete
+
+	Single-session -- typo?
+
+Coach passwords
+	Multiple coaches from a single County should be able to login
+	(Likely not more than 3)
+	Coach should be able to change to their own password
+	Admin should be able to change/create the password theirself
+		And then the Coach can change the password, too
+
+Formatting
+	Phone number? Need a particular format?
+		Currently only numbers
+	Date
+		Month, day, year
+		But it gets converted to Year, month, day on output
+
+There are going to be 5 events each year
+	And there are sub categories of each event
+
+Shooting events
+	Must consider events shot at the same location
+	And time
+	And players can only shoot at one of either of the heats
+	People are only competing with people of the same age group
+
+There will be a hosting provider when it's ready to go
+
+Competitions
+	Checking previous years -> Leaving all the previous competitors is necessary
+		If someone is too old, they should still be left in the database
+	Competitions do not overlap in date/time
+	Same competitors go to each
+
+Keep players between competitions?
+	Two categories of players
+		Active or inactive
+
+	A nice thing to add would be
+		If you click on a player, you should be able to see all the events they've competed in over the years
+
+	Events will need to be associated with the Competition
+
+	Delete player would have to remove them from the Competition
+
+	Coaches must be refreshed each competition?
+		Paul doesn't think the extra access may be unnecessary
+
+		Coaches will need to be inactivated by the admin as each competition changes
+
+The Coaches tab should be able to change the password
+	Don't show the password out right on the page
+
+Spectators
+	Needed to be kept track of for housing/meals
+
+	Reports need to be able to do more than a PDF
+		CSVs are necessary
+
+	The main point of the application is for sheduling and record keeping
+		Everything else, housing, meals, payments, will be done as usual
+Reports form
+	All Players and All Clubs reports return the same report
+	Intentional -- looks the same given a small sample competition
+
+	Can be solved by a CSV report
+
+Creating a player
+	Linked via coach id, not name or anything useful
+	Should be Club (and not club id)
+
+Admin will create a shell Club for the coach to fill out
+
+

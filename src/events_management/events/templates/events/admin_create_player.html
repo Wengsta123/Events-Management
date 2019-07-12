@@ -1,0 +1,121 @@
+{% extends 'admin_dashboard.html' %}
+
+{% block create_player %}
+
+<script>
+    //this function checks that no more than one element of the same type is selected
+    //according to customer's requirements
+    $(function(){
+        $('#my_form').submit(function(){
+            event_logic();
+        });
+    });
+    function event_logic(){
+        // when the submit button is clicked, we check that the selected events do not conflict
+        var events_field = document.getElementById("id_events");
+        var watch_out = [];
+
+        for (var count = 0; count < events_field.children.length; count ++){
+            var my_event = events_field.children[count];
+
+            //if the event name contains the words that we have been told to watch out for
+            if (my_event.innerText.includes("Archery")){
+                // and the checkbox has been selected
+                if(my_event.firstChild.firstChild.checked == true){
+                    //we add them to an array to cross compare them
+                    watch_out.push("archery");
+                }
+            }
+
+            if (my_event.innerText.includes("archery")){
+                // and the checkbox has been selected
+                if(my_event.firstChild.firstChild.checked == true){
+                    //we add them to an array to cross compare them
+                    watch_out.push("archery");
+                }
+            }
+
+            if (my_event.innerText.includes("Smallborne")){
+                // and the checkbox has been selected
+                if(my_event.firstChild.firstChild.checked == true){
+                    //we add them to an array to cross compare them
+                    watch_out.push("smallbone");
+                }
+            }
+
+            if (my_event.innerText.includes("smallborne")){
+                // and the checkbox has been selected
+                if(my_event.firstChild.firstChild.checked == true){
+                    //we add them to an array to cross compare them
+                    watch_out.push("smallbone");
+                }
+            }
+
+            if (my_event.innerText.includes("PPP")){
+                // and the checkbox has been selected
+                if(my_event.firstChild.firstChild.checked == true){
+                    //we add them to an array to cross compare them
+                    watch_out.push("ppp");
+                }
+            }
+        }
+
+        //now that all the events have been processed
+        for (var element in watch_out){
+            for (var other_element in watch_out){
+
+                //if two elements have the same name
+                if ( (element != other_element) && (watch_out[element] != undefined) && (watch_out[element] == watch_out[other_element]) ){
+                    //let the user know and return
+                    alert("You have selected more than one " + watch_out[element] + " event. You may not select more than one.")
+                    event.preventDefault();
+                    watch_out = [];
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+</script>
+
+<h3>Create Athlete</h3>
+
+<!-- <form method="post" action="{% url 'admin_create_coach' %}">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit">
+</form> -->
+
+<!-- Coach field was removed from this template during Sprint 8, as it had been removed from the form -->
+<form id="my_form" method='POST'>{% csrf_token %}
+{% if form.non_field_errors %}
+
+		<div class="alert alert-danger" role="alert">
+			{% for error in form.non_field_errors %}
+				{{error}}
+			{% endfor %}
+		</div>
+	{% endif %}
+<div class="col">
+	{% for field in form.visible_fields %}
+		<div class="form-group">
+			{{ field.label_tag}}
+			{{field}}
+			{% if field.help_text %}
+				<small class="text-muted">{{field.help_text}}</small>
+			{% endif %}
+			{% if field.errors %}
+					<div class="text-danger">
+						{{ field.errors }}
+					</div>
+			{% endif %}
+		</div>
+	{% endfor %}
+  </div>
+<!-- Sprint 8: Reformatted the arrangement of these buttons to maintain spacing-->
+<div>
+	<input id="submit_button" type='submit' class="btn btn-primary" value='Create'> <input type='button' value='Back' class="btn btn-primary" onclick="javascript:history.go(-1);">
+</div>
+
+</form>
+{% endblock %}

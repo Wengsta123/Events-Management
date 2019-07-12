@@ -1,0 +1,50 @@
+{% extends 'admin_dashboard.html' %}
+
+{% block players %}
+
+<!-- <div class="tab-pane fade show active" id="list-Players" role="tabpanel" aria-labelledby="list-Players-list"> -->
+  <div class="row justify-content-between">
+    <div class="col-4">
+      <a href="/admin_create_player" class="btn btn-primary">Add Athlete</a>
+    </div>
+  </div>
+  <div class="form-group">
+    &nbsp;
+  </div>
+  <div class="col">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">Date of Birth</th>
+          <th scope="col">Gender</th>
+          <th scope="col">County/Club</th>
+          <th scope="col">Availability</th>
+          <th scope="col">Requested Events</th>
+	  <th scope="col">Competition</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for player in player_list %}
+        <tr>
+          <td>{{player.first_name}}</td>
+          <td>{{player.last_name}}</td>
+          <td>{{player.date_of_birth}}</td>
+          <td>{{player.gender}}</td>
+          <td>{{player.county_id}}</td>
+          <td>{{player.availability}}</td>
+	  <!-- The events are listed with commas seperating them, the if statement ensures there
+		are no extraneous commas -->
+          <td>{% for event in player.events.all %} {{event.name}}{% if not forloop.last %},  {%endif%}  {% endfor %}</td>
+	  <td>{{player.competition_id}}</td>
+          <td><a href="{% url 'admin_edit_player' player.player_id %}">Edit</a> <a href="{% url 'ad_p_delete_function' player.player_id %}" onclick="return confirm('Are you sure you want to delete {{player.first_name}} {{player.last_name}}? This decision cannot be undone')">Delete</a></td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+<!-- </div> -->
+
+{% endblock %}

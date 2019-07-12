@@ -1,0 +1,79 @@
+{% extends 'admin_dashboard.html' %}
+
+{% block create_admin %}
+
+<h3>Create Admin</h3>
+
+<form method="post" action=".">
+    {% csrf_token %}
+{% if account_form.non_field_errors %}
+		<div class="alert alert-danger" role="alert">
+			{% for error in account_form.non_field_errors %}
+				{{error}}
+			{% endfor %}
+		</div>
+
+	{% endif %}
+	{% if admin_form.non_field_errors %}
+		<div class="alert alert-danger" role="alert">
+			{% for error in admin_form.non_field_errors %}
+				{{error}}
+			{% endfor %}
+		</div>
+
+	{% endif %}
+
+
+ <div class="col">
+	<div class ="form-group">
+	Username
+	{{account_form.username}}
+	{% if account_form.username.errors %}
+		<div class="text-danger">
+			{{ account_form.username.errors }}
+		</div>
+	{% endif %}
+	</div>
+
+        <div class ="form-group">
+        Password
+	{{account_form.password1}}
+	{% if account_form.password1.errors %}
+		<div class="text-danger">
+			{{ account_form.password1.errors }}
+		</div>
+	{% endif %}
+	</div>
+
+	<div class ="form-group">       
+	Confirm Password
+	{{account_form.password2}}
+	{% if account_form.password2.errors %}		
+		<div class="text-danger">
+			{{ account_form.password2.errors }}
+		</div>	
+	{% endif %}
+	</div>
+
+	{% for field in admin_form.visible_fields %}
+		<div class="form-group">
+			{{ field.label_tag}}
+			{{field}}
+			{% if field.help_text %}
+				<small class="text-muted">{{field.help_text}}</small>
+			{% endif %}
+			{% if field.errors %}		
+					<div class="text-danger">
+						{{ field.errors }}
+					</div>	
+			{% endif %}
+		</div>
+	{% endfor %}
+	</div>
+  </div>
+    <div>
+    <input type="submit" class="btn btn-primary" value="Create"> <input type='button' value='Back' class="btn btn-primary" onclick="javascript:history.go(-1);">
+	</div>
+</form>
+
+{% endblock %}

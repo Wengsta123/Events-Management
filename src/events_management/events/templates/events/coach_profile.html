@@ -1,0 +1,18 @@
+{% extends 'coach_dashboard.html' %}
+
+{% block profile %}
+
+<div class="row">
+    <div class="col-2 col-offset-4">
+      <div>
+      <p>Username: {{ user.username }}</p>
+      <p>Email: {{ user.coach.email }}</p>
+      <p>First Name: {{ user.coach.first_name }}</p>
+      <p>Last Name: {{ user.coach.last_name }}</p>
+      </div>
+    </div>
+</div>
+
+<a href="/logout" class="btn btn-primary">Logout</a>
+
+{% endblock %}

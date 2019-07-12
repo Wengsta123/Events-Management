@@ -1,0 +1,89 @@
+14 November 2018
+Minutes
+
+Paul reviews most recent version of the application
+	Paul sees each event has its own time length
+	The admin should have the ability to change the time per event
+
+Paul knows we will be working on scheduling and reporting
+	Reports should be somewhat completed Sunday after Thanksgiving
+
+	He will be able to run tests over the Winter break
+
+	Scheduler -> Hope to have a basic one done at end of sprint
+	But a working one will be worked on for the next sprint
+
+
+Discuss logistics of class and application
+	Next semester goals, such as polishing, team scoring
+
+Questions for Paul
+	Admin view
+		Does he want another tab or a separate table?
+
+	Admin creates a county, each county has at least one head coach who can add more head coaches
+
+	Paul does not want to enter coaches and counties separate
+		Admins should be able to add players just like head coaches
+
+	County-add: Drop-down or type-in
+		Originally it was going to be type-in, because of counties that are not related to the county
+
+		Are clubs associated with counties?
+			No
+		Multiple counties could accumulate to become one club
+
+		We will change counties to clubs in the database
+
+		Paul likes drop-downs because of human error
+
+		Add-coach form will have a club drop-down
+
+	Adding a club -> does it mean it has to have a head coach?
+		Not immediately, since it might not be known who the coach is.
+		When you create a club, it will require having at least a generic coach until you know their information
+
+	There are three types of adults
+		Coaches on site
+		Volunteer running the competition
+			Doesn't have to pay for housing and meals
+		Parents that come to watch
+		Coordinators are from the club that does secretary stuff but isn't a coach
+		
+		Will need a checkbox that identifies who they are.
+
+	Transitioning to a new year
+		A competition is per year
+		A button ends the competition
+			Clears the competitors, coaches, heats, and stashes them away
+
+		Hopefully we can still pull old information like players and events into the new competition
+			New ones will have to be added and old ones can be deleted by the club's head coach
+			Birthday will be an idicator to automatically remove someone
+			Clubs will also hopefully stick around, but old accounts will need to be removed
+
+			Clubs need to be able to skip a year
+
+		Competitions tab -> Shows years and controls the others
+			Competitions need a foreign key to all the players
+
+	Events tab
+		Gets a name, time, length
+		Some players should only be able to enter certain events?
+			There are a couple of events only open to some age groups.
+		Some events are mutually exclusive?
+			
+
+	We've been working under the assumption that we can decide the number of heats to schedule.
+		This is okay with Paul.
+		The scheduler can place things wherever, but some things might be more desireable.
+		Paul can change the schedule as needed
+		Based on number of shooters, can we get a break/catch-up period for shooters?
+			Would be nice
+
+	Currently we are trying to get it so that there are more than one admin running it.
+		Paul would like a button to add more admins on the interface.
+
+We will be meeting next Wednesday after Thanksgiving
+	6:30?
+

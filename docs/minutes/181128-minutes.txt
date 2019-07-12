@@ -1,0 +1,64 @@
+28 November 2018
+6:30 PM
+
+Paul wants a Player report?
+County/Club report to be printed
+	Each player on a single report has a time slot and event
+	The report should be succinct and on as few pages as possible
+
+Last meeting before break
+	End of semester -> Paul will get instructions via email to work with a demo online
+		Should have login credentials
+	Off of the Paris server
+	There will be testing data online
+	
+The scheduler will be worked on to some degree ths sprint
+	Next semester is for most of the work
+
+Paul gets to see the reports at the moment
+	Paul may want to see some kind of feedback that the machine is working?
+	The report shows whatever data you program it to
+	Paul wants alphabetical order
+	Paul likes that you can select a county
+	Paul: DoB is only for Junior/Senior
+		Doesn't need to be visible on the report
+		Should be accessible but not something you need to print
+
+Paul mentioned the student evaluations
+
+A head-coach in a club
+	There can be other coaches in a club
+	A county is a team
+	Team scores are independent of the county
+
+	County should be called a club
+
+	A club should initially have a coach
+
+There may be un-affiliated adults who are not in clubs, but must be handled in the database for support, housing, meals
+	We are not scheduling meals
+
+	Adults (volunteers) need to be in the system
+		For housing, meals
+
+		Though Paul could have a bodge to add volunteers to the system
+		We will add a table to the database to keep track of volunteers
+
+		Everyone who needs to get food or housing must be entered into the database
+
+	Information to collect:
+		Separation between Parents or Volunteers
+			People who volunteer get free stuff
+			Parents don't
+		Another category:
+			Match Director
+		Non-participating children can come
+		Other adults can come
+
+		Don't care about who their player is
+		Need Name, email, phone, county/club (optional)
+
+	There are walk-in registrations at the event
+		Or absences
+		This part is by hand
+

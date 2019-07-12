@@ -1,0 +1,50 @@
+2019 27 March
+
+Reports are live!
+	... just not on the server right this minute...
+
+	The reports create CSVs
+
+	The password can be reset/changed if needed
+		The database does not keep the password in text
+
+	The exported CSV is editable
+
+
+User Manual
+	This week is the technical thesis
+	After the thesis, there are two weeks to work on the manual
+
+Installing the app on the server
+	Followup email was sent today
+		No response
+
+People should not be able to register multiple times for a single event
+	Including when an event has multiple event entries
+
+	There is a restriction now that coaches cannot add athletes closer than 2 weeks prior to the event
+		It would be nice if the admins could disable sub-admin access
+		It would disable a specific competition
+
+		We will talk to Jake to work with it (and see if it's still possible)
+
+Paul's feedback
+	Paul tried adding himself as a coach, and he got an error
+		Paul is using the (broken) superuser account
+
+	Schedule page needs to have a weekly view
+	
+	Setting current competition sets the competition to all of the admins
+
+On creation, coaches have automatically assigned some competition
+	We need to check with Jake how players get updated between competitions
+
+Scheduler
+	It doesn't care how many times you hit it
+	But it also doesn't care about previous schedules
+		Including manual changes
+	
+Editing the relay
+	There will be a comment in the form that says PRESS CTRL WHEN SELECTING MULTIPLE PLAYERS
+
+	

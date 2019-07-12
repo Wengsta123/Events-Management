@@ -1,0 +1,42 @@
+
+{% extends 'admin_dashboard.html' %}
+
+{% block edit_coach %}
+
+<h3>Edit Coach</h3>
+
+<form method="post" action="{% url 'admin_edit_coach' coach_id %}">
+    {% csrf_token %}
+	{% if form.non_field_errors %}
+		<div class="alert alert-danger" role="alert">
+			{% for error in form.non_field_errors %}
+				{{error}}
+			{% endfor %}
+		</div>
+	{% endif %}
+    <div class="col">
+    
+	{% for field in form.visible_fields %}
+		<div class="form-group">
+			{{ field.label_tag}}
+			{{field}}
+			{% if field.help_text %}
+				<small class="text-muted">{{field.help_text}}</small>
+			{% endif %}
+			{% if field.errors %}		
+					<div class="text-danger">
+						{{ field.errors }}
+					</div>	
+			{% endif %}
+		</div>
+	{% endfor %}
+	
+  </div>
+<div>
+    <input type="submit" class="btn btn-primary" value="Submit"> <input type='button' value='Back' class="btn btn-primary" onclick="javascript:history.go(-1);">
+	<a class = "btn btn-primary" href="{% url 'admin_change_password' account.account_id%}">Change Password</a>
+</div>
+</form>
+
+
+{% endblock %}

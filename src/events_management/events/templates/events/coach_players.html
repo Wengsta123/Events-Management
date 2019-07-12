@@ -1,0 +1,54 @@
+{% extends 'coach_dashboard.html' %}
+
+{% block players %}
+
+<div class="row justify-content-between">
+  <div class="col-1">
+    <a href="/coach_create_player" class="btn btn-primary btn-md btn-block">Add Athlete</a>
+  </div>
+  <div class="col-11">
+    <a href="/coach_report" class="btn btn-primary btn-md reducefontsize">Create Report</a>
+  </div>
+</div>
+<div class="form-group">
+  &nbsp;
+</div>
+<div class="col">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Date of Birth</th>
+        <th scope="col">Gender</th>
+        <th scope="col">County/Club</th>
+        <th scope="col">Availability</th>
+        <th scope="col">Requested Events</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for player in player_list %}
+      <tr>
+        <td>{{player.first_name}}</td>
+        <td>{{player.last_name}}</td>
+        <td>{{player.date_of_birth}}</td>
+        <td>{{player.gender}}</td>
+        <td>{{player.county_id}}</td>
+        <td>{{player.availability}}</td>
+        <td>{% for event in player.events.all %} {{event.name}} {% endfor %}</td>
+        <td><a href="{% url 'coach_edit_player' player.player_id %}">Edit</a> <a href="{% url 'co_p_delete_function' player.player_id %}">Delete</a></td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+<div class="row justify-content-between">
+  <div class="col-2">
+    <a href="{% url 'report_player_schedule' %}" class="btn btn-primary btn-md btn-wrap-text reducefontsize">Print Schedule</a>
+  </div>
+</div>
+
+<!-- </div> -->
+
+{% endblock %}

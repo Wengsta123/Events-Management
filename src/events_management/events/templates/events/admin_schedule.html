@@ -1,0 +1,32 @@
+{% extends 'admin_dashboard.html' %}
+
+{% block schedule %}
+
+<!-- <div class="tab-pane fade" id="list-Schedule" role="tabpanel" aria-labelledby="list-Schedule-list"> -->
+  <div class="row">
+   <!-- <a href="admin_create_competition.html" class="btn btn-primary">Add Event</a> -->
+  </div>
+  <div class="form-group">
+    &nbsp;
+  </div>
+  <div class="row justify-content-between">
+    <div class="col-4">
+      <a href="/refresh_schedule" class="btn btn-primary">Refresh Schedule</a>
+      <div class="btn btn-primary" onclick="
+      	if (confirm('Are you sure? This will clear all relays in the database!'))
+		document.location = '/start_scheduler';
+	">Start Scheduler</div>
+    </div>
+  </div>
+  <div class="form-group">
+    &nbsp;
+  </div>
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <iframe src="https://calendar.google.com/calendar/embed?showDate=0&amp;showPrint=0&amp;showCalendars=0&amp;mode=DAY&amp;height=600&amp;wkst=7&amp;bgcolor=%23FFFFFF&amp;src=ktrv3lg5oksebj784ggmc0smho%40group.calendar.google.com&amp;color=%23853104&amp;ctz=America%2FNew_York" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+        </div>
+    </div>
+  <!-- </div> -->
+
+{% endblock %}

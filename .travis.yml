@@ -1,0 +1,17 @@
+language: python
+
+python:
+  - "3.5.1"
+install:
+  - cd src/events_management/
+  - pip install django==2.1
+  - pip install reportlab
+  - pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib
+  - pip install oauth2client
+  - pip install coverage
+
+
+script: python manage.py test
+
+
+sudo: false

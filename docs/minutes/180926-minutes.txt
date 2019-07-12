@@ -1,0 +1,28 @@
+26 September 2018
+
+Desired: Entry form -> Transfers automatically to squadding
+	
+Players don't interact with the system
+	Sometimes you have a county with a single participant
+	So the kid would be the coach
+
+Some events are limited - as in they can sign up for 4 sqaudded events on Sat and 4 on Sun
+	There are other mechanics
+
+Admin creates coach accounts
+	Coaches get information via email
+
+There should be a security mechanism
+
+Round-robin event scheduling?
+	Leave a break if you can
+	Schedule should be able to be modified after the fact
+
+
+Admin needs complete access to everything
+
+Desired: Individual player printing
+	
+We should be able to change the event details
+
+

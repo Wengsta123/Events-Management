@@ -1,0 +1,56 @@
+{% extends 'admin_dashboard.html' %}
+
+{% block create_competition %}
+
+<h3>Import Competition</h3>
+
+<!-- <form method="post" action="{% url 'admin_create_coach' %}">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit">
+</form> -->
+
+<form method='POST' action='.'>{% csrf_token %}
+
+	{% if form.non_field_errors %}
+		<ul>
+			{% for error in form.non_field_errors %}
+				<li>{{error}}</li>
+			{% endfor %}
+		</ul>
+	{% endif %}
+
+	<div class="col">
+    <table class="table">
+      <tbody>
+        <tr>
+          <td scope="col">Competition Name</td>
+	<td>{{form.competition_name}}</td>
+	<td>{{form.competition_name.errors}}</td>
+
+        </tr>
+	<tr>
+		<td scope="col">Competition Start Date (yyyy-mm-dd or mm/dd/yyyy)</td>
+		<td>{{form.start_date}}</td>
+		<td>{{form.start_date.errors}}</td>
+	</tr>
+
+	<tr>
+		<td scope="col">Select Competition to Import From</td>
+		<td>{{form.imported_competition}}</td>
+		<td>{{form.imported_competition.errors}}</td>
+	</tr>
+
+      </tbody>
+    </table>
+  </div>
+
+<div>
+	<input type='submit' class="btn btn-primary" value='Create'> <input type='button' class="btn btn-primary" value='Back' onclick="javascript:history.go(-1);">
+</div>
+</form>
+
+
+
+
+{% endblock %}

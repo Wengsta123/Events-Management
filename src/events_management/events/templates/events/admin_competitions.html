@@ -1,0 +1,39 @@
+{% extends 'admin_dashboard.html' %}
+
+{% block competitions %}
+
+<!-- <div class="tab-pane fade show active" id="list-Players" role="tabpanel" aria-labelledby="list-Players-list"> -->
+  <div class="row justify-content-between">
+    <div class="col-4">
+      <a href="/admin_create_competition" class="btn btn-primary">Add Competition</a>
+      <a href="/admin_import_competition" class="btn btn-primary">Import Competition</a>
+    </div>
+  </div>
+  <div class="form-group">
+    &nbsp;
+  </div>
+  <div class="col">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Competition Name</th>
+	  <th scope="col">Competition Start Date</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for competition in competitions %}
+        <tr>
+          <td>{{competition.name}}</td>
+	  <td>{{competition.start_date}}</td>
+<!-- Setting a competition to be the current upcoming competition changes a variety of factors 
+since most of the interface is structured around preparing for the current competition.
+The admin cannot delete the competition if it is current. -->
+          <td>{%if competition != current_comp%}<a href="{% url 'admin_set_current_competition' competition.competition_id  %}" onclick="return confirm('Are you sure you want to make {{competition.name}} the current competition?')">Set As Current</a>{%else%}Current Competition{%endif%}<td><a href="{% url 'admin_edit_competition' competition.competition_id  %}">Edit</a> {%if competition != current_comp%}<a href="{% url 'admin_delete_competition' competition.competition_id  %}" onclick="return confirm('Are you sure you want to delete {{competition.name}}? This action cannot be undone.')">Delete</a>{%endif%}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+<!-- </div> -->
+
+{% endblock %}

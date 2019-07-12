@@ -1,0 +1,50 @@
+10 October 2018
+6:28 PM
+
+Wireframes displayed to Paul
+	Explanation
+
+	Paul should get a copy to give us more feedback
+
+	Last name and first name need to be split
+
+
+Some categories need to split into sub categories
+
+Coach adding to system would be restricted to some level
+	To be determined
+	Can't add people to specific heats
+
+	There can be more than one coach per county
+
+Gender is asked for housing reasons
+
+Adding/Removing events
+	Events have locations
+	Multiple events could have the same location
+
+Scheduling
+	If something changes, (a lack and/or surplus of entries) then
+		Heat schedules need to change
+	Scheduling should optimize for the number of people in the heat
+		and minimize the heat totals
+		Gives more flexibility
+		Even out the number of people in a heat
+
+	The scheduler should do the initial work, and
+		the admin needs to be able to change anything
+
+	Admins should be able to swap players
+
+Paul will assume that we are meeting if there is no message
+
+It is fine if the scheduler creates a heat of all one county's members
+	Try to round-robin the scheuduler
+
+Coaches
+	They can either have their accounts created for them with a generated password <- yes
+	Or they could get a protected link to create an account <- no
+
+	Paul wants to be able to set coach access to counties
+	And the ability to add more admins
+

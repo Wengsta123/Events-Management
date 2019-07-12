@@ -1,0 +1,28 @@
+19 February 2019
+
+Jake, Jeremy, Caymen are absent
+
+Server owner details have been exchanged
+	Louis is taking over server details to get the machine going
+
+
+Competition
+	Regional shoot e.g.
+
+	Competitions can be named
+		Start date
+		The day could change to Friday and be 3 days long
+
+	Scheduler needs to take into account lunch periods
+
+	Timing
+		Time between events
+
+	
+The Admin
+	Can see a list of competitions
+		And can set the current one
+		Each coach is in a specific competition
+		On switching competitions, coaches can be reset
+
+	Will be able to export the "entire" database into an Excel spreadsheet

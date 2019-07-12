@@ -1,0 +1,33 @@
+10 April 2019 at 9:00 PM
+
+Last meeting!!!
+	Jake is absent
+
+We will not be changing the database any
+	Previously, Paul wanted to change the application to lock out coaches after a certain time
+	Paul would rather just go in and change their passwords after a certain time
+
+We are testing things for now
+
+We are still trying to contact the host to install it
+	The application uses a framework called Django
+		In a language in Python
+	The scheduler is in C
+
+This Sunday, it should be finished
+
+Paul will be getting a formal email
+	All of the code, installation instructions, user manual
+	It will be accessible
+
+Paul being at the demo/presentation
+	April 22 (Monday) -> Our presentation
+	We will invite Paul when we know we can
+
+We complain about Django
+
+Paul sent his comments to Isabel
+	And Isabel received it
+
+Basketball
+

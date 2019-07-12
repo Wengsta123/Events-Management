@@ -1,0 +1,15 @@
+player
+	name	varchar
+	date of birth	date
+	gender	char[6]
+	availability	varchar
+	county	county_id
+	events	manyToMany(event)
+
+class Player(models.Model):
+	player_id = models.AutoField(primary_key=True)
+	date_of_birth = models.DateField()
+	gender = models.CharField(max_length=16, default = "No answer")
+	availability = models.CharField(max_length=1024, default = "")
+	county = models.ManyToOneField(County)
+	events = models.ManyToManyField(Event)

@@ -1,0 +1,208 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Athlete Menu</title>
+  <meta charset = "UTF-8" />
+  <link rel="stylesheet"
+href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <div class="container-fluid">
+    <div class="form-group">
+      &nbsp;
+    </div>
+    <div class="form-group">
+      &nbsp;
+    </div>
+    <div class="row justify_content-center">
+      <div class="col-11 text-right">
+        logged in as (username)
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-1">
+        <div class="list-group" id="list-tab" role="tablist">
+          <a class="list-group-item list-group-item-action active" id="list-Players-list" data-toggle="list" href="#list-Players" role="tab" aria-controls="Players">Athletes</a>
+          <a class="list-group-item list-group-item-action" id="list-Coaches-list" data-toggle="list" href="#list-Coaches" role="tab" aria-controls="Coaches">Coaches</a>
+          <a class="list-group-item list-group-item-action" id="list-Schedule-list" data-toggle="list" href="#list-Schedule" role="tab" aria-controls="messages">Schedule</a>
+          <a class="list-group-item list-group-item-action" id="list-Reports-list" data-toggle="list" href="#list-Reports" role="tab" aria-controls="settings">Reports</a>
+        </div>
+      </div>
+      <div class="col-8">
+        <div class="tab-content" id="nav-tabContent">
+          <div class="tab-pane fade show active" id="list-Players" role="tabpanel" aria-labelledby="list-Players-list">
+            <div class="row justify-content-between">
+              <div class="col-4">
+                <button type="button" class="btn btn-primary">Add Athlete</button>
+              </div>
+            </div>
+            <div class="form-group">
+              &nbsp;
+            </div>
+            <div class="col-12">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Date of Birth</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">County/Club</th>
+                    <th scope="col">Availability</th>
+                    <th scope="col">Requested Events</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+		  {% for object in object_list%}
+                  <tr>
+                    <td scope="row">{{object.first_name}}</td>
+                    <td>{{object.last_name}}</td>
+                    <td>{{object.date_of_birth}}</td>
+                    <td>{{object.gender}}</td>
+                    <td>Albermarle</td>
+                    <td>{{object.availability}}</td>
+                    <td>{% for event in object.events.all %}
+
+{{event.name}}
+{% endfor %}
+</td>
+                    <td><a href="{% url 'coach_edit_player' object.player_id %}">Edit</a> <a href="{% url 'co_p_delete_function' object.player_id%}">Delete</a></td>
+                  </tr>
+		{% endfor %}
+	
+		  <tr>
+			
+			<form method='POST' action='.'>{% csrf_token %}
+				<!--{{ form.non_field_errors }}
+				{% for hidden_field in form.hidden_fields %}
+					{{ hidden_field.errors }}
+					{{ hidden_field }}
+				{% endfor %}-->
+				{{form.as_table}}
+				<!--{% for field in form.visible_fields %}
+					<td>{{ field }} {{ field.help_text }}</td>
+				{% endfor %}-->
+				<input type='submit' value='Create'>
+			</form>  
+
+		  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="list-Coaches" role="tabpanel" aria-labelledby="list-Coaches-list">
+            <div class="row justify-content-between">
+              <div class="col-4">
+                <button type="button" class="btn btn-primary">Add Coach</button>
+              </div>
+            </div>
+            <div class="form-group">
+              &nbsp;
+            </div>
+            <div class="col-12">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone Number</th>
+                    <th scope="col">County/Club</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Jane</td>
+                    <td>Doe</td>
+                    <td>email@email.com</td>
+                    <td>434-111-1111</td>
+                    <td>Albermarle</td>
+                    <td><a href="coach_dashboard.html">Edit</a> <a href="coach_dashboard.html">Delete</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="list-Schedule" role="tabpanel" aria-labelledby="list-Schedule-list">Schedule Goes Here...</div>
+          <div class="tab-pane fade" id="list-Reports" role="tabpanel" aria-labelledby="list-Reports-list">
+            <div class="row">
+              <div class="col-10">
+                <div class="card-deck">
+                  <div class="card">
+                    <div class="card-header">Athletes</div>
+                    <div class="card-body text-center">
+                      <div class="card-text text-center"> All Athletes </div>
+                      <button type="button" class="btn btn-primary btn-sm">Generate Report</button>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-header">County/Club</div>
+                    <div class="card-body text-center">
+                      <div class="card-text text-center"> All Counties/Clubs </div>
+                      <button type="button" class="btn btn-primary btn-sm">Generate Report</button>
+                      <div class="form-group">
+                        &nbsp;
+                      </div>
+                      <div class="card-text"> Select County/Club </div>
+                      <select class="selectpicker-block" size="5" multiple>
+                        <option>Albermarle County</option>
+                        <option>Bedford County</option>
+                        <option>Mecklenburg County</option>
+                        <option>Brunswick County</option>
+                        <option>Campbell County</option>
+                        <option>Amherst County</option>
+                        <option>Cumberland County</option>
+                        <option>Green County</option>
+                        <option>Orange County</option>
+                      </select>
+                      <button type="button" class="btn btn-primary btn-sm">Generate Report</button>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-header">Events</div>
+                    <div class="card-body text-center">
+                      <div class="card-text text-center"> All Events</div>
+                      <button type="button" class="btn btn-primary btn-sm">Generate Report</button>
+                      <div class="form-group">
+                        &nbsp;
+                      </div>
+                      <div class="card-text"> Select Event </div>
+                        <select class="selectpicker" size="5" multiple>
+                          <option>Smallbore 3P light rifle</option>
+                          <option>Smallbore 3P match rifle</option>
+                          <option>BB rifle</option>
+                          <option>Skeet</option>
+                          <option>Trap</option>
+                          <option>Sporter & Match 3P air rifle</option>
+                          <option>PPP air pistol</option>
+                          <option>Archery</option>
+                          <option>.22 Camp Perry pistol</option>
+                        </select>
+                        <button type="button" class="btn btn-primary btn-sm">Generate Report</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+	
+  </body>
+</html>

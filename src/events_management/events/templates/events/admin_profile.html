@@ -1,0 +1,12 @@
+{% extends 'admin_dashboard.html' %}
+
+{% block profile %}
+
+<p>Username: {{ user.username }}</p>
+<p>Email: {{ user.email }}</p>
+<p>First Name: {{ user.first_name }}</p>
+<p>Last Name: {{ user.last_name }}</p>
+<p>Current Competition: {{ competition.name }}</p>
+<a href="/admin_create_admin" class="btn btn-primary">Create Admin</a>
+<a href="/logout" class="btn btn-primary">Logout</a>
+{% endblock %}

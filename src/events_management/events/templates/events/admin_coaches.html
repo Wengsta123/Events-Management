@@ -1,0 +1,57 @@
+{% extends 'admin_dashboard.html' %}
+
+{% block coaches %}
+
+<!-- <div class="tab-pane fade" id="list-Coaches" role="tabpanel" aria-labelledby="list-Coaches-list"> -->
+  <div class="row justify-content-between">
+    <div class="col-4">
+      <a href="/admin_create_coach" class="btn btn-primary">Add Coach</a>
+    </div>
+  </div>
+  <div class="form-group">
+    &nbsp;
+  </div>
+  <div class="col">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+	<!-- Username column was added to provide more information to the admin-->
+	  <th scope="col">Username</th>
+          <th scope="col">Email</th>
+          <th scope="col">Phone Number</th>
+          <th scope="col">County/Club</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for coach in coach_list %}
+        <tr>
+          <td>{{coach.first_name}}</td>
+          <td>{{coach.last_name}}</td>
+	  <td>{{coach.account.username}}</td>
+          <td>{{coach.email}}</td>
+          <td>{{coach.phone_number}}</td>
+          <td>{{coach.county_id}}</td>
+          <td><a href="{% url 'admin_edit_coach' coach.account.account_id%}">Edit</a> <a href="{% url 'admin_delete_coach' coach.account.account_id%}" onclick="return confirm('Are you sure you want to delete {{coach.first_name}} {{coach.last_name}}? This action cannot be undone.')">Delete</a></td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+<!-- </div> -->
+
+<!-- <h1>Coaches</h1>
+<ul>
+{% for coach in coaches %}
+    <li>{{ coach.first_name }} {{ coach.last_name }} ({{ coach.email }}) - {{ coach.county_id.name }}  <a href ={% url 'admin_edit_coach' coach.account.account_id  %} class='btn btn-primary' >
+    Edit Info
+</a></li>
+{% empty %}
+    <li>No coaches yet.</li>
+{% endfor %}
+</ul> -->
+
+
+{% endblock %}

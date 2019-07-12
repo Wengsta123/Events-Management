@@ -1,0 +1,40 @@
+{% extends 'admin_dashboard.html' %}
+
+{% block admins %}
+
+<!-- <div class="tab-pane fade show active" id="list-Players" role="tabpanel" aria-labelledby="list-Players-list"> -->
+  <div class="row justify-content-between">
+    <div class="col-4">
+      <a href="/admin_create_admin" class="btn btn-primary">Add Admin</a>
+    </div>
+  </div>
+  <div class="form-group">
+    &nbsp;
+  </div>
+  <div class="col">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">First Name</th>
+	  <th scope="col">Last Name</th>
+	  <th scope="col">Current Competition</th>
+	  <th scope="col">Email</th>
+	  <th scope="col">Phone Number</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for administrator in administrators %}
+        <tr>
+          <td>{{administrator.first_name}}</td>
+	  <td>{{administrator.last_name}}</td>
+	  <td>{{administrator.current_competition}}</td>
+	  <td>{{administrator.email}}</td>
+	  <td>{{administrator.phone_number}}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+<!-- </div> -->
+
+{% endblock %}

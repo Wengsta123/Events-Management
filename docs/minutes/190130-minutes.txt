@@ -1,0 +1,29 @@
+30 January 2019
+
+Isabel is having car troubles
+
+Time of the start of the competition
+	9:00 AM - 6:00 PM Saturday
+	8:00 AM - 1:00 PM Sunday
+	Lunch if can between 11:30 and 1:30 - 1/2 to 45 min to eat
+
+Server details?
+	Need to know what needs in order to setup the server
+	We'll send an email describing the server requirements
+
+When coaches login, they can't see old competitions
+	Results are always somewhere else
+	They just need to be able to input data on their athletes
+
+	Largest county is aroud 25
+	
+Coach accounts
+	Paul doesn't think they'll do anything malicious
+	Paul could, on another year, just change what information he needs
+	Typically, there's only one person registering the club
+
+	Paul still makes the initial account
+
+	We don't need to worry about them changing their own password
+
+

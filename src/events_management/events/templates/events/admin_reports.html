@@ -1,0 +1,71 @@
+{% extends 'admin_dashboard.html' %}
+
+{% block reports %}
+
+<!-- <div class="tab-pane fade" id="list-Reports" role="tabpanel" aria-labelledby="list-Reports-list"> -->
+  <div class="row">
+    <div class="col-10">
+      <div class="card-deck">
+        <div class="card">
+          <div class="card-header">Athletes</div>
+          <div class="card-body text-center">
+            <div class="card-text text-center"> All Athletes (Alphabetical) </div>
+            <!-- <button type="button" class="btn btn-primary btn-sm"><a style="color: white; text-decoration: none;" href="/report_all_players">Generate Report</a></button> -->
+            <a href="/report_all_players" class="btn btn-primary btn-sm">Generate Report</a>
+            <div class="form-group">
+              &nbsp;
+            </div>
+          <div class="card-text text-center"> CSV Report </div>
+          <a href="{% url 'report_csv' %}" class="btn btn-primary btn-sm">Generate Report</a>
+        </div>
+        </div>
+        <div class="card">
+          <div class="card-header">Club</div>
+          <div class="card-body text-center">
+            <div class="card-text text-center"> Athletes per Club </div>
+            <a href="/report_all_counties" class="btn btn-primary btn-sm">Generate Report</a>
+            <div class="form-group">
+              &nbsp;
+            </div>
+            <div class="card-text"> Select Club </div>
+
+            <form method="post" action="{% url 'report_select_county' %}">
+                {% csrf_token %}
+                {{ county_form }}
+                <div class="row justify-content-center">
+                  <input type="submit" class="btn btn-primary btn-sm" value="Generate Report">
+                </div>
+            </form>
+
+            <!-- <select class="selectpicker-block" name='county_select' size="5" multiple>
+            {% for county in county_list %}
+              <option>{{county.name}}</option>
+            {% endfor %}
+            </select> -->
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">Events</div>
+          <div class="card-body text-center">
+            <div class="card-text text-center"> Athletes per Event </div>
+            <a href="/report_all_events" class="btn btn-primary btn-sm">Generate Report</a>
+            <div class="form-group">
+              &nbsp;
+            </div>
+            <div class="card-text"> Select Event </div>
+              <form method="post" action="{% url 'report_select_events' %}">
+                {% csrf_token %}
+                {{ event_form }}
+                <div class="row justify-content-center">
+                  <input type="submit" class="btn btn-primary btn-sm" value="Generate Report">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <!-- </div> -->
+
+{% endblock %}

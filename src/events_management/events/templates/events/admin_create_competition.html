@@ -1,0 +1,53 @@
+{% extends 'admin_dashboard.html' %}
+
+{% block create_competition %}
+
+<h3>Create Competition</h3>
+
+<!-- <form method="post" action="{% url 'admin_create_coach' %}">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit">
+</form> -->
+
+<form method='POST' action='.'>{% csrf_token %}
+
+
+{% if form.non_field_errors %}
+		<div class="alert alert-danger" role="alert">
+			{% for error in form.non_field_errors %}
+				{{error}}
+			{% endfor %}
+		</div>
+	{% endif %}
+
+<div class="col">
+	
+	{% for field in form.visible_fields %}
+		<div class="form-group">
+			{{ field.label_tag}}
+			{{field}}
+			{% if field.help_text %}
+				<small class="text-muted">{{field.help_text}}</small>
+			{% endif %}
+			{% if field.errors %}		
+					<div class="text-danger">
+						{{ field.errors }}
+					</div>	
+			{% endif %}
+		</div>
+	{% endfor %}
+	
+</div>
+
+
+<!-- Sprint 8: Reformatted the arrangement of these buttons to maintain spacing-->
+<div>
+	<input type='submit' class="btn btn-primary" value='Create'> <input type='button' class="btn btn-primary" value='Back' onclick="javascript:history.go(-1);">
+</div>
+</form>
+
+
+
+
+{% endblock %}

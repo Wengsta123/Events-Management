@@ -1,0 +1,34 @@
+October 29th 2018
+5:00 pm
+
+Dashboard layouts were shown to Paul and an explanation was provided
+
+   Paul asks that we list junior or senior instead of date of birth
+
+   Date of birth should still be captured for reporting purposes, but should not be displayed in the dashboard
+
+we discussed the details of the scheduling of the four different types of archery events
+  
+  the details of who can register for each of the types of archery events has been provided in the artifacts
+  
+  this should be reflected and enforced in the events selection pop up from the add player forms
+
+include the ability to sort by columns for awards purposes (this does not to be available in the dashboard)
+  
+  the reports must be in such a format that they make this possible
+  
+  for example, we might enable a csv report as well as a pdf report
+	
+  the fields that we mostly would focus on are event, name, junior vs senior
+  
+  this "sortable report" will be useful for scoring purposes which will happen outside the system
+  
+  more details on what information the scoring system will need will follow
+
+the add player form is no longer two parts, just one (no need for this distinction, it would just complicate things)
+
+	continue functionality is no longer necessary
+
+We ask Paul the questions: how long should players remain in the system? How do we deal with legacy data?
+
+	all players stay there from year to year. coaches or admins can delete the ones they don't want before submission the following year
